@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 # usage: file_env VAR [DEFAULT]
@@ -25,21 +25,12 @@ file_env() {
 
 file_env 'DOCKER_DIND_EXTRA_HOSTS'
 if [ "$DOCKER_DIND_EXTRA_HOSTS" ]; then
-
     while IFS=':' read -r -d ',' host ip && [[ -n "$host" ]]; do
-        echo "$ip $host"
+        echo "$ip $host" >> /etc/hosts
     done <<<"${DOCKER_DIND_EXTRA_HOSTS},"
-
-
-    IFS=',' read -ra EXTRA_HOSTS <<< "$DOCKER_DIND_EXTRA_HOSTS"
-    for extra_host in "${EXTRA_HOSTS[@]}"; do
-        while IFS=':' read -r host ip; do
-
-        done <<< "$extra_host"
-        IFS=':' read -ra EXTRA_HOSTS <<< "$DOCKER_DIND_EXTRA_HOSTS"
-        echo i >> /etc/hosts
-    done
 fi
+
+more /etc/hosts
 
 deamon_options=""
 file_env 'DOCKER_DIND_DEAMON_OPTION'
