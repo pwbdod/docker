@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+echo "###############################"
+echo "# Pushing images"
+echo "###############################"
+
+image=${DOCKER_REPO}:latest
+echo "# Pushing image ${image}..."
+
+cmd="docker image push "${image}""
+
+echo "# Pushing command : ${cmd}"
+
+${cmd}

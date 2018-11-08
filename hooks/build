@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+echo "###############################"
+echo "# Building images"
+echo "###############################"
+
+image=${DOCKER_REPO}:latest
+echo "# Building image ${image}..."
+
+cmd="docker build \
+  --pull \
+  -t "${image}" ."
+
+echo "# Building command : ${cmd}"
+
+${cmd}
