@@ -30,8 +30,6 @@ if [ "$DOCKER_DIND_EXTRA_HOSTS" ]; then
     done <<<"${DOCKER_DIND_EXTRA_HOSTS},"
 fi
 
-more /etc/hosts
-
 deamon_options=""
 file_env 'DOCKER_DIND_DEAMON_OPTION'
 if [ "$DOCKER_DIND_DEAMON_OPTION" ]; then

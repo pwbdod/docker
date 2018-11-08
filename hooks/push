@@ -4,7 +4,7 @@ echo "###############################"
 echo "# Pushing images"
 echo "###############################"
 
-image=${DOCKER_REPO}:latest
+image=${DOCKER_REPO}:dind
 echo "# Pushing image ${image}..."
 
 cmd="docker image push "${image}""

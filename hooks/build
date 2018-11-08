@@ -4,7 +4,7 @@ echo "###############################"
 echo "# Building images"
 echo "###############################"
 
-image=${DOCKER_REPO}:latest
+image=${DOCKER_REPO}:dind
 echo "# Building image ${image}..."
 
 cmd="docker build \
