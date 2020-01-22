@@ -1,10 +1,10 @@
 # Docker Dind extanded
 
-This docker image extand official docker:dind image and allow to pass variable.
+This docker image extand official docker:dind image and allow to pass variable for registry mirror.
 
 ## Variables
- - **DOCKER_DIND_EXTRA_HOSTS**
-DOCKER_DIND_EXTRA_HOSTS="my.local:192.168.1.1,my.local2:192.168.1.2"
+ - **DOCKER_INSECURE_REGISTRY**
+DOCKER_INSECURE_REGISTRY="my.local:5000"
 
-- **DOCKER_DIND_DEAMON_OPTION**
-DOCKER_DIND_DEAMON_OPTION="--registry-mirror=http://my.local:5000"
+- **DOCKER_REGISTRY_MIRROR**
+DOCKER_REGISTRY_MIRROR="http://my.local:5000"
