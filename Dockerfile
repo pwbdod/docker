@@ -1,11 +1,6 @@
 FROM docker:dind
 
-RUN apk add --no-cache bash
+COPY extra-entrypoint.sh /usr/local/bin/
 
-COPY dockerd-entrypoint.sh /usr/local/bin/
-
-VOLUME /var/lib/docker
-EXPOSE 2375 2376
-
-ENTRYPOINT ["dockerd-entrypoint.sh"]
+ENTRYPOINT ["extra-entrypoint.sh"]
 CMD []
